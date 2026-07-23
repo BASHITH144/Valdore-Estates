@@ -124,15 +124,23 @@ const ResponsiveHeroBanner = ({
                             </div>
                         </nav>
 
-                        {/* Mobile Menu Toggle Button */}
-                        <button
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="hero-mobile-toggle"
-                            aria-expanded={mobileMenuOpen}
-                            aria-label="Toggle menu"
-                        >
-                            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                        </button>
+                        {/* Mobile Controls */}
+                        <div className="hero-mobile-controls">
+                            {toggleTheme && (
+                                <button onClick={toggleTheme} className="hero-mobile-toggle" aria-label="Toggle Theme">
+                                    {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                                </button>
+                            )}
+                            {/* Mobile Menu Toggle Button */}
+                            <button
+                                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                                className="hero-mobile-toggle"
+                                aria-expanded={mobileMenuOpen}
+                                aria-label="Toggle menu"
+                            >
+                                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                            </button>
+                        </div>
                     </div>
                 </div>
 

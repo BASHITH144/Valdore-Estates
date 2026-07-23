@@ -182,6 +182,19 @@
   transform: rotate(15deg);
 }
 
+/* Mobile Controls Wrapper */
+.hero-mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-mobile-controls {
+    display: none;
+  }
+}
+
 /* Mobile Toggle */
 .hero-mobile-toggle {
   display: inline-flex;
