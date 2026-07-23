@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
-
+import logo from '../assets/Valdore Estates Logo 2.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,17 +23,8 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
-        <a href="#" className="navbar-brand" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="url(#zap-gradient)" stroke="none">
-            <defs>
-              <linearGradient id="zap-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#a855f7" />
-                <stop offset="100%" stopColor="#3b82f6" />
-              </linearGradient>
-            </defs>
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-          </svg>
-          <span className="navbar-title" style={{ fontWeight: 600, fontSize: '1.5rem', color: '#fff', letterSpacing: '-0.02em', textTransform: 'lowercase' }}>webapp</span>
+        <a href="#" className="navbar-brand">
+          <img src={logo} alt="webapp Logo" className="navbar-logo" />
         </a>
 
         {/* Desktop Menu */}

@@ -97,7 +97,7 @@ const PropertyDetailPage = () => {
           <div className="broker-panel">
             <div className="broker-info">
               <p className="broker-label">Assigned Broker Agent</p>
-              <p className="broker-name font-heading">Valdore Estates Representative</p>
+              <p className="broker-name font-heading">webapp Representative</p>
             </div>
             <a 
               href={`https://wa.me/${property.brokerNumber.replace('+', '')}?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(property.title)}`}

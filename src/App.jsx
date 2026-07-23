@@ -12,7 +12,7 @@ import { propertiesData } from './properties';
 import './App.css';
 
 // Import local assets
-import logoImage from './assets/Valdore Estates Logo.png';
+import logoImage from './assets/Valdore Estates Logo 2.png';
 import heroImage from './assets/hero_background.png';
 import backgroundVideo0 from './assets/background Vedio.mp4';
 import backgroundVideo1 from './assets/background Vedio 1.mp4';
@@ -91,7 +91,7 @@ function App() {
           <div className="footer-container">
             <div className="footer-grid">
               <div className="footer-brand">
-                <img src={logoImage} alt="Valdore Estates" className="footer-logo" />
+                <img src={logoImage} alt="webapp" className="footer-logo" />
                 <p className="footer-desc">Curators of ultra-premium real estate for the world's most discerning individuals. Organic minimalism meets ultimate luxury.</p>
               </div>
               
@@ -112,7 +112,7 @@ function App() {
             </div>
             
             <div className="footer-bottom">
-              <p>&copy; {new Date().getFullYear()} Valdore Estates. All Rights Reserved.</p>
+              <p>&copy; {new Date().getFullYear()} webapp. All Rights Reserved.</p>
             </div>
           </div>
         </footer>

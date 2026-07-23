@@ -21,7 +21,7 @@ const ResponsiveHeroBanner = ({
     badgeLabel = "Exclusive",
     badgeText = "Premium Residential & Commercial Listings",
     title = "Discover Luxury Living",
-    titleLine2 = "With Valdore Estates",
+    titleLine2 = "With webapp",
     description = "Explore our handpicked selection of ultra-premium properties designed for sophisticated lifestyles. Exceptional locations, unmatched craftsmanship, and seamless client support.",
     primaryButtonText = "View Properties",
     primaryButtonHref = "#properties",
@@ -86,10 +86,10 @@ const ResponsiveHeroBanner = ({
                         {/* Logo */}
                         <a href="#" className="hero-logo-wrapper">
                             {logoUrl ? (
-                                <img src={logoUrl} alt="Valdore Estates" className="hero-logo-img" />
+                                <img src={logoUrl} alt="webapp" className="hero-logo-img" />
                             ) : (
                                 <div className="hero-text-logo">
-                                    <span className="hero-text-logo-main">VALDORE</span>
+                                    <span className="hero-text-logo-main">WEBAPP</span>
                                     <span className="hero-text-logo-sub">ESTATES</span>
                                 </div>
                             )}
