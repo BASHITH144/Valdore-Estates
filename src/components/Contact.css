@@ -1,0 +1,136 @@
+.contact-section {
+  padding: 120px 0;
+  background-color: var(--bg-canvas);
+  position: relative;
+}
+
+/* Ensure alternating section colors */
+.about-section + .contact-section {
+  background-color: var(--bg-canvas);
+}
+
+.contact-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.contact-info-column {
+  padding-right: 20px;
+}
+
+.contact-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.contact-divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--primary-gold);
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.contact-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  color: var(--primary-gold);
+  margin-top: 4px;
+}
+
+.contact-item-title {
+  font-size: 1.25rem;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.contact-item-text {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.contact-form-column {
+  background-color: var(--bg-surface);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+}
+
+.form-title {
+  font-size: 2rem;
+  color: var(--text-main);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: var(--bg-canvas);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 6px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-bottom-color: var(--primary-gold);
+}
+
+.form-input::placeholder {
+  color: rgba(44, 42, 38, 0.4);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-submit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .contact-form-column {
+    padding: 40px 24px;
+  }
+}
