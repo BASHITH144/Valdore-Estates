@@ -138,6 +138,13 @@ const ResponsiveHeroBanner = ({
 
                 {/* Mobile Dropdown Menu Drawer */}
                 <div className={`hero-mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+                    <button 
+                        className="hero-mobile-menu-close" 
+                        onClick={() => setMobileMenuOpen(false)}
+                        aria-label="Close menu"
+                    >
+                        <X size={24} />
+                    </button>
                     {navLinks.map((link, index) => (
                         <a
                             key={index}

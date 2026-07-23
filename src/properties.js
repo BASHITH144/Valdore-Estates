@@ -9,9 +9,9 @@ export const propertiesData = [
     beds: 6,
     baths: 8,
     sqft: '12,500',
-    mainImage: '/src/assets/luxury_property.png',
+    mainImage: 'https://images.unsplash.com/photo-1613490908575-9b2f671c6999?auto=format&fit=crop&w=1200&q=80',
     images: [
-      '/src/assets/luxury_property.png',
+      'https://images.unsplash.com/photo-1613490908575-9b2f671c6999?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     ],
