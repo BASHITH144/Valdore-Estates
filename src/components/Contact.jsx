@@ -1,43 +1,45 @@
 import React from 'react';
 import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { siteContent } from '../data/content';
 import './Contact.css';
 
 const Contact = () => {
+  const { contact } = siteContent;
   return (
     <section id="contact" className="contact-section">
       <div className="contact-container">
         <div className="contact-grid">
           
           <div className="contact-info-column">
-            <h2 className="contact-title font-heading mb-6">Private <span className="text-gold">Inquiries</span></h2>
+            <h2 className="contact-title font-heading mb-6">{contact.title} <span className="text-gold">{contact.titleHighlight}</span></h2>
             <div className="contact-divider mb-8"></div>
             
             <p className="contact-text mb-10">
-              For discrete viewings, off-market opportunities, or representation, please reach out to our dedicated team of luxury property advisors. We ensure utmost confidentiality and exceptional service.
+              {contact.text}
             </p>
             
             <div className="contact-details">
               <div className="contact-item">
                 <MapPin className="contact-icon" size={24} />
                 <div>
-                  <h4 className="contact-item-title font-heading">Global Headquarters</h4>
-                  <p className="contact-item-text">9800 Wilshire Blvd, Suite 200<br/>Beverly Hills, CA 90212</p>
+                  <h4 className="contact-item-title font-heading">{contact.headquartersTitle}</h4>
+                  <p className="contact-item-text">{contact.headquartersAddressLine1}<br/>{contact.headquartersAddressLine2}</p>
                 </div>
               </div>
               
               <div className="contact-item">
                 <Phone className="contact-icon" size={24} />
                 <div>
-                  <h4 className="contact-item-title font-heading">Direct Line</h4>
-                  <p className="contact-item-text">+1 (310) 555-0198</p>
+                  <h4 className="contact-item-title font-heading">{contact.directLineTitle}</h4>
+                  <p className="contact-item-text">{contact.directLineNumber}</p>
                 </div>
               </div>
               
               <div className="contact-item">
                 <Mail className="contact-icon" size={24} />
                 <div>
-                  <h4 className="contact-item-title font-heading">Email</h4>
-                  <p className="contact-item-text">inquiries@valdore.com</p>
+                  <h4 className="contact-item-title font-heading">{contact.emailTitle}</h4>
+                  <p className="contact-item-text">{contact.emailAddress}</p>
                 </div>
               </div>
             </div>
@@ -45,7 +47,7 @@ const Contact = () => {
           
           <div className="contact-form-column">
             <form className="contact-form">
-              <h3 className="form-title font-heading mb-8">Request a Consultation</h3>
+              <h3 className="form-title font-heading mb-8">{contact.formTitle}</h3>
               
               <div className="form-group">
                 <input type="text" className="form-input" placeholder="Full Name" required />
@@ -64,7 +66,7 @@ const Contact = () => {
               </div>
               
               <button type="button" className="btn btn-primary form-submit">
-                Submit Inquiry <ArrowRight size={16} />
+                {contact.formSubmitText} <ArrowRight size={16} />
               </button>
             </form>
           </div>

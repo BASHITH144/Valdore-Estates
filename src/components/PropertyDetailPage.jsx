@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { propertiesData } from '../properties';
+import { propertiesData } from '../data/content';
 import { ArrowLeft, CheckCircle, Map } from 'lucide-react';
 import './PropertyDetail.css';
 
@@ -10,6 +10,7 @@ const PropertyDetailPage = () => {
   
   // Default to mainImage if property found, otherwise null
   const [activeImage, setActiveImage] = useState(property ? property.mainImage : null);
+  const [activeLanguage, setActiveLanguage] = useState('english');
 
   if (!property) {
     return (
@@ -60,44 +61,13 @@ const PropertyDetailPage = () => {
               {property.description}
             </p>
 
-            {/* Property Features */}
-            {property.features && (
-              <div className="property-features">
-                <h3 className="overview-title font-heading">Exceptional Features</h3>
-                <ul className="features-grid">
-                  {property.features.map((feature, idx) => (
-                    <li key={idx} className="feature-item">
-                      <CheckCircle className="feature-icon" size={18} />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Location Profile */}
-            {property.locationDetails && (
-              <div className="location-profile">
-                <h3 className="overview-title font-heading">Location Profile</h3>
-                <div className="location-card">
-                  <div className="location-icon-wrapper">
-                    <Map className="location-icon" size={24} />
-                  </div>
-                  <p className="detail-description location-text">
-                    {property.locationDetails}
-                  </p>
-                </div>
-              </div>
-            )}
-            
-            <div className="detail-divider"></div>
           </div>
 
           {/* Broker Connect Panel */}
           <div className="broker-panel">
             <div className="broker-info">
               <p className="broker-label">Assigned Broker Agent</p>
-              <p className="broker-name font-heading">webapp Representative</p>
+              <p className="broker-name font-heading">Valdore Estates Representative</p>
             </div>
             <a 
               href={`https://wa.me/${property.brokerNumber.replace('+', '')}?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(property.title)}`}
@@ -112,6 +82,86 @@ const PropertyDetailPage = () => {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="extended-info-section">
+        {/* Property Features */}
+        {property.features && (
+          <div className="property-features">
+            <h3 className="overview-title font-heading">Exceptional Features</h3>
+            <ul className="features-grid">
+              {property.features.map((feature, idx) => (
+                <li key={idx} className="feature-item">
+                  <CheckCircle className="feature-icon" size={18} />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Location Profile */}
+        {property.locationDetails && (
+          <div className="location-profile">
+            <h3 className="overview-title font-heading">Location Profile</h3>
+            <div className="location-card">
+              <div className="location-icon-wrapper">
+                <Map className="location-icon" size={24} />
+              </div>
+              <p className="detail-description location-text">
+                {property.locationDetails}
+              </p>
+            </div>
+          </div>
+        )}
+        
+        {/* Bilingual Tables */}
+        {property.detailsTables && (
+          <div className="property-tables">
+            <div className="language-tabs">
+              <button 
+                className={`lang-tab-btn ${activeLanguage === 'english' ? 'active' : ''}`}
+                onClick={() => setActiveLanguage('english')}
+              >
+                English
+              </button>
+              <button 
+                className={`lang-tab-btn ${activeLanguage === 'sinhala' ? 'active' : ''}`}
+                onClick={() => setActiveLanguage('sinhala')}
+              >
+                සිංහල (Sinhala)
+              </button>
+            </div>
+
+            {activeLanguage === 'english' && (
+              <div className="table-container">
+                <h3 className="overview-title font-heading">Property Details</h3>
+                <div className="details-grid-container">
+                  {property.detailsTables.english.map((row, idx) => (
+                    <div className="detail-grid-item" key={idx}>
+                      <div className="detail-grid-label">{row.label}</div>
+                      <div className="detail-grid-value">{row.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {activeLanguage === 'sinhala' && (
+              <div className="table-container">
+                <h3 className="overview-title font-heading">දේපල විස්තර</h3>
+                <div className="details-grid-container sinhala-text">
+                  {property.detailsTables.sinhala.map((row, idx) => (
+                    <div className="detail-grid-item" key={idx}>
+                      <div className="detail-grid-label">{row.label}</div>
+                      <div className="detail-grid-value">{row.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -8,7 +8,8 @@ import Contact from './components/Contact';
 import PropertyDetailPage from './components/PropertyDetailPage';
 import PropertyMarquee from './components/PropertyMarquee';
 import ValdoreImpact from './components/ValdoreImpact';
-import { propertiesData } from './properties';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
+import { propertiesData, siteContent } from './data/content';
 import './App.css';
 
 // Import local assets
@@ -36,8 +37,8 @@ function App() {
     setIsDarkMode(prev => !prev);
   };
 
-  // Extract all property images for the marquee loop
-  const allPropertyImages = propertiesData.map(p => p.mainImage);
+  // Fetch main images for the marquee from properties data (newest first)
+  const allPropertyImages = [...propertiesData].reverse().map(p => p.mainImage);
 
   return (
     <Router>
@@ -56,13 +57,14 @@ function App() {
                 ]}
                 isDarkMode={isDarkMode}
                 toggleTheme={toggleTheme}
+                {...siteContent.hero}
               />
               <main className="main-content">
                 <PropertyMarquee 
-                  tagline="The Valdore Collection"
-                  title={<>A Curated Portfolio <br/>of Masterpieces</>}
-                  description="Explore our exclusive off-market and publicly listed properties, showcasing the pinnacle of architectural achievement."
-                  ctaText="Explore Collection"
+                  tagline={siteContent.marquee.tagline}
+                  title={<>{siteContent.marquee.titleLine1} <br/>{siteContent.marquee.titleLine2}</>}
+                  description={siteContent.marquee.description}
+                  ctaText={siteContent.marquee.ctaText}
                   images={allPropertyImages}
                 />
                 <Properties />
@@ -91,31 +93,32 @@ function App() {
           <div className="footer-container">
             <div className="footer-grid">
               <div className="footer-brand">
-                <img src={logoImage} alt="webapp" className="footer-logo" />
-                <p className="footer-desc">Curators of ultra-premium real estate for the world's most discerning individuals. Organic minimalism meets ultimate luxury.</p>
+                <img src={logoImage} alt="Valdore Estates" className="footer-logo" />
+                <p className="footer-desc">{siteContent.footer.description}</p>
               </div>
               
               <div className="footer-links-col">
                 <h4 className="footer-heading font-heading">Navigation</h4>
-                <a href="/#properties" className="footer-link">Properties</a>
-                <a href="/#about" className="footer-link">About Us</a>
-                <a href="/#services" className="footer-link">Services</a>
-                <a href="/#contact" className="footer-link">Contact</a>
+                {siteContent.footer.navLinks.map((link, idx) => (
+                  <a key={idx} href={link.href} className="footer-link">{link.label}</a>
+                ))}
               </div>
               
               <div className="footer-links-col">
                 <h4 className="footer-heading font-heading">Legal</h4>
-                <a href="#" className="footer-link">Privacy Policy</a>
-                <a href="#" className="footer-link">Terms of Service</a>
-                <a href="#" className="footer-link">Fair Housing</a>
+                {siteContent.footer.legalLinks.map((link, idx) => (
+                  <a key={idx} href={link.href} className="footer-link">{link.label}</a>
+                ))}
               </div>
             </div>
             
             <div className="footer-bottom">
-              <p>&copy; {new Date().getFullYear()} webapp. All Rights Reserved.</p>
+              <p>&copy; {new Date().getFullYear()} {siteContent.footer.copyrightText}</p>
+              <p className="designed-by">Designed and Developed by TechTitude Labs</p>
             </div>
           </div>
         </footer>
+        <FloatingWhatsApp phoneNumber="+94 76 053 4425" />
       </div>
     </Router>
   );

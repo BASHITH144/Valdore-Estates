@@ -143,7 +143,7 @@
 
 .property-type-badge {
   position: absolute;
-  bottom: 16px;
+  top: 16px;
   left: 16px;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;

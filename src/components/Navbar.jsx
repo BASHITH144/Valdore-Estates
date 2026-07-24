@@ -24,7 +24,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <a href="#" className="navbar-brand">
-          <img src={logo} alt="webapp Logo" className="navbar-logo" />
+          <img src={logo} alt="Valdore Estates Logo" className="navbar-logo" />
         </a>
 
         {/* Desktop Menu */}

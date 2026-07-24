@@ -1,36 +1,32 @@
 import React from 'react';
 import { Diamond, ShieldCheck, Key } from 'lucide-react';
+import { siteContent } from '../data/content';
 import './Services.css';
 
 const Services = () => {
-  const services = [
-    {
-      icon: <ShieldCheck size={40} className="service-icon" />,
-      title: 'Private Acquisitions',
-      description: 'Discreet and exclusive representation for high-net-worth individuals seeking off-market legacy properties.'
-    },
-    {
-      icon: <Diamond size={40} className="service-icon" />,
-      title: 'Design Consultation',
-      description: 'Partnering with elite architectural firms to ensure properties reflect true organic minimalist principles.'
-    },
-    {
-      icon: <Key size={40} className="service-icon" />,
-      title: 'Turnkey Management',
-      description: 'Comprehensive estate management services ensuring a seamless transition and perfect maintenance.'
-    }
+  const { services: servicesData } = siteContent;
+  
+  const icons = [
+    <ShieldCheck size={40} className="service-icon" />,
+    <Diamond size={40} className="service-icon" />,
+    <Key size={40} className="service-icon" />
   ];
+
+  const services = servicesData.items.map((item, index) => ({
+    ...item,
+    icon: icons[index % icons.length]
+  }));
 
   return (
     <section id="services" className="services-section">
       <div className="services-container">
         <div className="services-header">
           <h2 className="services-title font-heading">
-            Bespoke <span className="text-gold">Services</span>
+            {servicesData.title} <span className="text-gold">{servicesData.titleHighlight}</span>
           </h2>
           <div className="services-divider"></div>
           <p className="services-subtitle">
-            Beyond brokering estates, Valdore offers a suite of premium concierge services to cater to every facet of luxury lifestyle management.
+            {servicesData.subtitle}
           </p>
         </div>
 

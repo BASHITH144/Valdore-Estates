@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { BedDouble, Bath, Maximize, ArrowRight, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { propertiesData } from '../properties';
+import { propertiesData } from '../data/content';
 import './Properties.css';
 
 const Properties = () => {
@@ -18,7 +18,7 @@ const Properties = () => {
 
   // Filter & Sort Logic
   const filteredProperties = useMemo(() => {
-    let result = [...propertiesData];
+    let result = [...propertiesData].reverse();
 
     // 1. Text Search Filter
     if (searchTerm.trim() !== '') {

@@ -72,6 +72,11 @@
   font-size: 0.9rem;
 }
 
+.designed-by {
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
 @media (max-width: 992px) {
   .footer-grid {
     grid-template-columns: 1fr;

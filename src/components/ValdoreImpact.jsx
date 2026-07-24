@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Globe, Trophy, Users } from 'lucide-react';
+import { siteContent } from '../data/content';
 import './ValdoreImpact.css';
 
 const containerVariants = {
@@ -48,23 +49,18 @@ const floatingVariants = {
 };
 
 const ValdoreImpact = () => {
-  const stats = [
-    {
-      value: '$2B+',
-      label: 'Global Sales Volume',
-      icon: <Globe size={20} className="stat-icon" />,
-    },
-    {
-      value: '15+',
-      label: 'Years of Mastery',
-      icon: <Trophy size={20} className="stat-icon" />,
-    },
-    {
-      value: '50+',
-      label: 'Exclusive Partners',
-      icon: <Users size={20} className="stat-icon" />,
-    },
+  const { impact } = siteContent;
+  
+  const icons = [
+    <Globe size={20} className="stat-icon" />,
+    <Trophy size={20} className="stat-icon" />,
+    <Users size={20} className="stat-icon" />
   ];
+
+  const stats = impact.stats.map((stat, idx) => ({
+    ...stat,
+    icon: icons[idx % icons.length]
+  }));
 
   const images = [
     'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
@@ -88,19 +84,19 @@ const ValdoreImpact = () => {
             className="impact-title font-heading"
             variants={itemVariants}
           >
-            A Legacy of <span className="text-gold">Excellence</span>
+            {impact.title} <span className="text-gold">{impact.titleHighlight}</span>
           </motion.h2>
           
           <motion.p className="impact-subtitle" variants={itemVariants}>
-            We don't just sell properties; we curate generational wealth and architectural masterpieces for the world's most discerning clientele. Our track record speaks to our uncompromising dedication to luxury.
+            {impact.subtitle}
           </motion.p>
           
           <motion.div className="impact-actions" variants={itemVariants}>
             <a href="#contact" className="btn btn-primary">
-              Consult an Expert
+              {impact.primaryButtonText}
             </a>
             <a href="#about" className="btn btn-outline" style={{ marginLeft: '16px' }}>
-              Our Story
+              {impact.secondaryButtonText}
             </a>
           </motion.div>
           
